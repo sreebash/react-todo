@@ -1,17 +1,11 @@
 import React from 'react';
+import Todo from "./Todo";
 
 const Todos = (props) => {
-    console.log(props.todos)
     return (
         <section>
             {
-                props.todos.map((data, index) => {
-                    return <div key={index}>
-                    <p>{data.id}</p>
-                    <p>{data.title}</p>
-                    <p>{data.desc}</p>
-                    </div>
-                })
+                props.todos.map((todo) => <Todo todo={todo} key={todo.id}/>)
             }
         </section>
     );
