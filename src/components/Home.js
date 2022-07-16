@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import Todos from "./Todos";
 import style from "../css/home.css";
 import NewTodo from "./NewTodo";
-
+import {v4 as uuidv4} from "uuid";
 
 const Home = () => {
     
@@ -10,8 +10,10 @@ const Home = () => {
     
     const addTodo = (todo) => {
         setTodos((prevTodos) => {
-            return [...prevTodos, {todo}]
-        })
+            return [...prevTodos, {id: uuidv4(), todo}]
+        });
+        console.log(todos);
+    
     }
     
     return (
