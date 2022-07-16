@@ -1,24 +1,25 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Todos from "./Todos";
+import style from "../css/home.css";
+import NewTodo from "./NewTodo";
 
-const dummyTodos = [
-    {
-        id: 1,
-        title: "todo title 1",
-        desc: "todo1 description"
-    },
-    {
-        id: 2,
-        title: "todo title 2",
-        desc: "todo2 description"
-    },
-
-]
 
 const Home = () => {
+    
+    const [todos, setTodos] = useState([]);
+    
+    const addTodo = (todo) => {
+        setTodos((prevTodos) => {
+            return [...prevTodos, {todo}]
+        })
+    }
+    
     return (
-        <div>
-            <Todos todos={dummyTodos}/>
+        <div className="container">
+            <h1 style={{color: "white"}}>Todo App</h1>
+            <NewTodo addTodo={addTodo}/>
+            
+            <Todos todos={todos}/>
         </div>
     );
 };
