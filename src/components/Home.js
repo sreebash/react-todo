@@ -16,12 +16,15 @@ const Home = () => {
     
     }
     
+    const handleRemoveTodo = (id) => {
+        alert(id)
+    };
     return (
         <div className="container">
             <h1 style={{color: "white"}}>Todo App</h1>
             <NewTodo addTodo={addTodo}/>
             
-            <Todos todos={todos}/>
+            <Todos todos={todos} removeTodo={handleRemoveTodo}/>
         </div>
     );
 };
