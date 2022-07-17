@@ -13,11 +13,12 @@ const Home = () => {
             return [...prevTodos, {id: uuidv4(), todo}]
         });
         console.log(todos);
-    
+        
     }
     
     const handleRemoveTodo = (id) => {
-        alert(id)
+        const filterTodo = todos.filter((todo) => todo.id !== id);
+        setTodos(filterTodo)
     };
     return (
         <div className="container">
